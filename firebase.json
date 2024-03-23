@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "flea-market",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

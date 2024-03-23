@@ -1,0 +1,78 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.site-hader {
+    padding: 2rem;
+    background-color: #8BBCFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.first-header-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.second-header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.second-hader-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.site-title {
+    display: flex;
+    gap: 2rem;
+}
+
+.main-nav nav ul {
+    display: flex;
+    gap: 2rem
+}
+
+.login-register-nav nav ul {
+    display: flex;
+    gap: 2rem;
+    justify-content: end;
+}
+
+.user-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+.user-nav nav ul {
+    display: flex;
+    gap: 2rem;
+}
+
+li {
+    list-style: none;
+}
+
+
+nav ul li a:hover {
+    color: rgb(244, 239, 239);
+    transition: all 0.4s ease;
+    text-shadow: black 1px 0 10px;
+    cursor: pointer;
+}
+
+a {
+    font-size: 1.2rem;
+    font-family: 'Gentium Book Plus', serif;
+    color: #1a1818e2;
+    text-decoration: none;
+    font-weight: bold;
+}

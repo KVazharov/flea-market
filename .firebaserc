@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "flea-market-745cd": {
+      "hosting": {
+        "flea-market": [
+          "flea-market-745cd"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "flea-market-745cd"
+  }
+}
