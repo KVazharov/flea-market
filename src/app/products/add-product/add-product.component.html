@@ -1,23 +1,65 @@
 <div class="add-product">
-        
-    <form class="add-form">
+
+    <form class="add-form" [formGroup]="form" (ngSubmit)="addProduct()">
         <h3>Add Product</h3>
-        
-            <input type="file" multiple id="images">
-            <label for="images"></label>
+
+        <input type="file" multiple accept="image/x-png,image/gif,image/jpeg" formControlName="images" id="images"
+            (change)="onFileSelected($event)">
+        <label for="images"></label>
+
+        <ng-container *ngIf="form.get('images')?.touched">
+            <p class="error" *ngIf="form.get('images')?.errors?.['required']">
+                Field is required!
+            </p>
+        </ng-container>
+
+        <label for="category-select">Category:</label>
+
+        <select id="category-select" formControlName="category">
+            <option value="laptop">Laptop</option>
+            <option value="tablet">Tablet</option>
+            <option value="phone">Phone</option>
+            <option value="monitor">Monitor</option>
+            <option value="headphones">Headphones</option>
+        </select>
+
+        <ng-container *ngIf="form.get('category')?.touched">
+            <p class="error" *ngIf="form.get('category')?.errors?.['required']">
+                Field is required!
+            </p>
+        </ng-container>
 
         <label for="product-name">Product name</label>
-        <input type="text" id="product-name">
+        <input type="text" id="product-name" formControlName="productName">
+
+        <ng-container *ngIf="form.get('productName')?.touched">
+            <p class="error" *ngIf="form.get('productName')?.errors?.['required']">
+                Field is required!
+            </p>
+        </ng-container>
 
         <label for="product-description">Product description</label>
-        <textarea name="product-description" id="product-description" cols="15" rows="10"></textarea>
+        <textarea name="product-description" id="product-description" cols="15" rows="10"
+            formControlName="productDescription"></textarea>
+
+        <ng-container *ngIf="form.get('productDescription')?.touched">
+            <p class="error" *ngIf="form.get('productDescription')?.errors?.['required']">
+                Field is required!
+            </p>
+        </ng-container>
 
         <label for="phone-number">Phone Number</label>
-        <input type="text" id="phone-number">
+        <input type="text" id="phone-number" formControlName="phoneNumber">
+
+        <ng-container *ngIf="form.get('phoneNumber')?.touched">
+            <p class="error" *ngIf="form.get('phoneNumber')?.errors?.['required']">
+                Field is required!
+            </p>
+        </ng-container>
 
         <div class="btns">
             <button class="cancle-btn">Cancle</button>
-            <button class="add-btn">Add</button>
+            <button class="add-btn" [disabled]="form.invalid">Add</button>
         </div>
     </form>
 </div>

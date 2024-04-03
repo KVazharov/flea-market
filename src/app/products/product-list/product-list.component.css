@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.wrapper {
+    min-height: 70vh;
+}
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product {
+    font-family: "Open Sans";
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 800px;
+    height: auto;
+    gap: 5rem;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 10px 0px #b2b1b1;
+    margin: 1rem;
+}
+
+.left-side {
+    display: flex;
+}
+
+img {
+    width: 120px;
+    height: 120px;
+}
+
+.name {
+    padding-top: 1rem;
+    padding-left: 2.5rem;
+    font-size: 1.2rem;
+}
+
+.images-section {
+    padding: 2rem;
+}
+
+.name:hover {
+    cursor: pointer;
+}
+
+.product:hover {
+    background-color: rgb(233, 232, 232)
+}
+
+.icon {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2rem;
+}
+
+i {
+    color: lightblue;
+    padding-right: 3rem;
+    height: 10px;
+}
+
+i:hover {
+    cursor: pointer;
+}

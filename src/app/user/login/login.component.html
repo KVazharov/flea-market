@@ -1,24 +1,29 @@
 <div class="login-form">
-        
-    <form [formGroup]="form" (ngSubmit)="login()" >
+
+    <form [formGroup]="form" (ngSubmit)="login()">
         <h3>Login</h3>
         <label for="email"><span>Email</span></label>
-        <input type="text" id="email" placeholder="email@gmail.com" formControlName="email">
+        <input type="text" id="email" formControlName="email">
         <ng-container *ngIf="form.get('email')?.touched">
             <p class="error" *ngIf="form.get('email')?.errors?.['required']">
-          Email is required!
-        </p>
+                Email is required!
+            </p>
             <p class="error" *ngIf="form.get('email')?.errors?.['pattern']">
                 Email is not valid!
             </p>
-        </ng-container>
 
+        </ng-container>
+        <ng-container>
+            <p class="error" *ngIf="notfoundEmail">
+                Incorect email or password!
+            </p>
+        </ng-container>
         <label for="password"><span>Password</span></label>
-        <input type="password" id="password" placeholder="********" formControlName="password">
-        <ng-container *ngIf="form.get('password')?.touched" >
-            <p class="error" *ngIf="form.get('password')?.errors?.['required']"> 
-          Password is required!
-        </p>
+        <input type="password" id="password" formControlName="password">
+        <ng-container *ngIf="form.get('password')?.touched">
+            <p class="error" *ngIf="form.get('password')?.errors?.['required']">
+                Password is required!
+            </p>
         </ng-container>
 
         <button class="login-btn" [disabled]="form.invalid">Login</button>

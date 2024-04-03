@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../types/user';
+import { NewUser, User } from '../types/user';
+
+
 
 @Injectable({
   providedIn: 'root',
@@ -8,21 +10,38 @@ import { User } from '../types/user';
 export class AuthUserService {
   constructor(private http: HttpClient) { }
 
+  url = 'https://flea-market-745cd-default-rtdb.firebaseio.com';
+  
   login(email: string, password: string) {
 
-    return this.http.get('https://flea-market-745cd-default-rtdb.firebaseio.com/users.json');
+    return this.http.get(`${this.url}/users.json`);
   }
 
-  register(username: string, email: string, password: string, confirmPassword: string, sectretQuestion: string, answer: string) {
-    
-    
-    
-    return this.http.post<User>('https://flea-market-745cd-default-rtdb.firebaseio.com/users.json', {
-       username,
-        email, 
-        password, 
-        confirmPassword, 
-        sectretQuestion, 
-        answer });
+
+  register({ username, email, password, confirmPassword, secretQuestion, answer, addedProducts, wishList }: NewUser) {
+
+
+    return this.http.post<User>(`${this.url}/users.json`, {
+      username,
+      email,
+      password,
+      confirmPassword,
+      secretQuestion,
+      answer,
+      addedProducts,
+      wishList
+    });
   }
+
+  getUserById(userId: string) {
+
+    return this.http.get<User>(`${this.url}/users/${userId}.json`);
+  }
+
+  isLoggIn() {
+    return localStorage.getItem('user');
+  }
+
+
+
 }

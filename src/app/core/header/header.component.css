@@ -1,5 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 
 html {
@@ -7,17 +6,25 @@ html {
     line-height: 1.5;
 }
 
+.site-name a {
+    color: teal;
+}
+
 .site-hader {
+    font-family: "Open Sans";
     padding: 2rem;
     background-color: #8BBCFF;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 50px;
 }
 
 .first-header-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    justify-content: center;
 }
 
 .second-header-container {
@@ -37,7 +44,7 @@ html {
 
 .main-nav nav ul {
     display: flex;
-    gap: 2rem
+    gap: 2rem;
 }
 
 .login-register-nav nav ul {
@@ -61,7 +68,6 @@ li {
     list-style: none;
 }
 
-
 nav ul li a:hover {
     color: rgb(244, 239, 239);
     transition: all 0.4s ease;
@@ -71,8 +77,28 @@ nav ul li a:hover {
 
 a {
     font-size: 1.2rem;
-    font-family: 'Gentium Book Plus', serif;
     color: #1a1818e2;
     text-decoration: none;
     font-weight: bold;
+}
+
+.info, 
+.success, 
+.warning, 
+.error, 
+.validation {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+
+.error{
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('https://i.imgur.com/GnyDvKN.png');
+    width: 300px;
+    height: 10px;
+    border-radius: 0.5rem;
 }

@@ -1,0 +1,18 @@
+
+
+<div class="current-product" >
+    <article>
+        <div class="images" *ngFor="let image of findProduct?.imagesUrl">
+           <a href="#"> <img [src]="image" alt=""></a>
+        </div>
+        <div class="description">
+            <h2>{{findProduct?.productName}}</h2>
+            <p class="category">{{findProduct?.category}}</p>
+            <p class="description-prodcut">{{findProduct?.productDescription}}</p>
+            <p class="phone-number">{{findProduct?.phoneNumber}}</p>
+        </div>
+    </article>
+
+</div>
+
+

@@ -1,4 +1,7 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ErrorService } from '../error.service';
+
 
 @Component({
   selector: 'app-header',
@@ -8,15 +11,21 @@ import { Component, DoCheck, OnInit } from '@angular/core';
 export class HeaderComponent implements DoCheck {
 
   isLoged:boolean = false;
+  username: string = '';
+  errorMesage: any;
+
+  constructor(private errorSrveice: ErrorService, private errMsg: ErrorService) {}
+
   
   ngDoCheck() {
-    if(localStorage.getItem("user")) {
+    const userId  = localStorage.getItem("user")
+    if(userId) {
       this.isLoged = true;
     }
-    
+  }
+  
+  logout() {
+    localStorage.removeItem("user");
   }
 
-  logout() {
-    localStorage.removeItem("user")
-  }
 }

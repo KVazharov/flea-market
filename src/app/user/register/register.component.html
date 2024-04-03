@@ -2,7 +2,7 @@
     <form [formGroup]="form" (ngSubmit)="register()">
         <h3>Register</h3>
         <label for="username"><span>Username</span></label>
-        <input type="text" id="username" formControlName="username"  />
+        <input type="text" id="username" formControlName="username" />
 
         <ng-container *ngIf="form.get('username')?.touched">
             <p class="error" *ngIf="form.get('username')?.errors?.['required']">
@@ -11,13 +11,11 @@
             <p class="error" *ngIf="form.get('username')?.errors?.['minLength']">
                 Username must be atleast 6 characters!
             </p>
-            <!-- <p class="error" *ngIf="">
-                Email is alrady used!
-              </p> -->
+
         </ng-container>
 
         <label for="email"><span>Email</span></label>
-        <input type="text" id="email" placeholder="email@gmail.com" formControlName="email" />
+        <input type="text" id="email" formControlName="email" />
 
         <ng-container *ngIf="form.get('email')?.touched">
             <p class="error" *ngIf="form.get('email')?.errors?.['required']">
@@ -26,11 +24,14 @@
             <p class="error" *ngIf="form.get('email')?.errors?.['pattern']">
                 Email is not valid!
             </p>
+            <p class="error" *ngIf="isUsed">
+                Email is alrady used!
+            </p>
         </ng-container>
 
         <ng-container formGroupName="passGroup">
             <label for="password"><span>Password</span></label>
-            <input type="password" id="password" placeholder="********" formControlName="password" />
+            <input type="password" id="password" formControlName="password" />
             <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
                 <p class="error" *ngIf="form.get('passGroup')?.get('password')?.errors?.['required']">
                     Password is required!
@@ -38,41 +39,41 @@
             </ng-container>
 
             <label for="confirm-password"><span>Confirm password</span></label>
-            <input type="password" id="confirm-password" placeholder="********" formControlName="confirmPassword" />
+            <input type="password" id="confirm-password" formControlName="confirmPassword" />
             <ng-container *ngIf="form.get('passGroup')?.get('confirmPassword')?.touched">
                 <p class="error" *ngIf="form.get('passGroup')?.get('confirmPassword')?.errors?.['required']">
                     Password is required!
                 </p>
-
                 <ng-container *ngIf="form.get('passGroup')?.errors?.['matchPasswords']">
                     <p class="error">Passwors does not match!</p>
                 </ng-container>
             </ng-container>
         </ng-container>
         <label for="secret-question"><span>Secret question</span></label>
-        <input type="text" id="secret-question" placeholder="Where are I'm from?" formControlName="sectretQuestion" />
-        <ng-container *ngIf="form.get('sectretQuestion')?.touched">
-            <p class="error" *ngIf=" form.get('sectretQuestion')?.errors?.['required']">
-                Sectret question is required!
+        <input type="text" id="secret-question" formControlName="secretQuestion" />
+        <ng-container *ngIf="form.get('secretQuestion')?.touched">
+            <p class="error" *ngIf="form.get('secretQuestion')?.errors?.['required']">
+                Secret question is required!
             </p>
+
         </ng-container>
         <label for="answer"><span>Answer</span></label>
-        <input type="text" id="answer" placeholder="Mexico" formControlName="answer" />
+        <input type="text" id="answer" formControlName="answer" />
         <ng-container *ngIf="form.get('answer')?.touched">
             <p class="error" *ngIf="form.get('answer')?.errors?.['required']">
                 Answer is required!
             </p>
         </ng-container>
         <div class="term-policy">
-            <input type="checkbox" class="check-terms" id="checkTerms" formControlName="checkTerms"/>
+            <input type="checkbox" class="check-terms" id="checkTerms" formControlName="checkTerms" />
             <label for="checkTerms">I agree with our policy terms</label>
         </div>
-        <ng-container *ngIf="form.get('checkTerms')?.errors?.['required']" >
+        <ng-container *ngIf="form.get('checkTerms')?.errors?.['required']">
             <p class="error">
-              Field is required!
+                Field is required!
             </p>
         </ng-container>
-        <button class="register-btn" [disabled]="form.invalid" >Register</button>
+        <button class="register-btn" [disabled]="form.invalid">Register</button>
         <div class="navigate-to">
             <ul>
                 <li>

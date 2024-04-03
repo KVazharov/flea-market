@@ -4,12 +4,13 @@ import { RegisterComponent } from "./register/register.component";
 import { LoginComponent } from "./login/login.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { AddProductComponent } from "../products/add-product/add-product.component";
+import { AuthGuardService } from "../guard/auth-guard.service";
 
 
-const routes: Routes = [{ path: 'login', component: LoginComponent },
+const routes: Routes = [{ path: 'login', component: LoginComponent},
 {path:'register', component: RegisterComponent},
-{path:'profile', component: ProfileComponent},
-{path: 'add-product', component: AddProductComponent}
+{path:'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
+{path: 'add-product', component: AddProductComponent, canActivate: [AuthGuardService]}
 ];
 
 @NgModule({

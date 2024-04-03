@@ -1,0 +1,76 @@
+<div class="wrapper">
+    <div class="read-only" *ngIf="!showEditMode">
+        <div class="product-list" *ngFor="let product of myProducts">
+            <div class="product" [attr.id]="product.id">
+                <div class="left-side">
+                    <div class="image">
+                        <img [src]="product.imagesUrl[0]" />
+                    </div>
+                    <h3>{{ product.productName }}</h3>
+                </div>
+                <div class="btn">
+                    <button class="delete-btn" (click)="deleteProduct($event)">
+                        Delete
+                    </button>
+                    <button class="edit-btn" (click)="editProduct($event)">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="edit" *ngIf="showEditMode">
+        <div class="can-render" *ngIf="canRender">
+            <form class="edit-form" [formGroup]="form" (ngSubmit)="onEdit()">
+                <h3>Edit Product</h3>
+                <label for="category-select">Category:</label>
+
+                <select id="category-select" formControlName="category" [value]="data.category">
+                    <option value="laptop">Laptop</option>
+                    <option value="tablet">Tablet</option>
+                    <option value="phone">Phone</option>
+                    <option value="monitor">Monitor</option>
+                    <option value="headphones">Headphones</option>
+                </select>
+
+                <ng-container *ngIf="form.get('category')?.touched">
+                    <p class="error" *ngIf="form.get('category')?.errors?.['required']">
+                        Field is required!
+                    </p>
+                </ng-container>
+
+                <label for="product-name">Product name</label>
+                <input type="text" id="product-name" formControlName="productName">
+
+                <ng-container *ngIf="form.get('productName')?.touched">
+                    <p class="error" *ngIf="form.get('productName')?.errors?.['required']">
+                        Field is required!
+                    </p>
+                </ng-container>
+
+                <label for="product-description">Product description</label>
+                <textarea name="product-description" id="product-description" cols="15" rows="10"
+                    formControlName="productDescription"></textarea>
+
+                <ng-container *ngIf="form.get('productDescription')?.touched">
+                    <p class="error" *ngIf="form.get('productDescription')?.errors?.['required']">
+                        Field is required!
+                    </p>
+                </ng-container>
+
+                <label for="phone-number">Phone Number</label>
+                <input type="text" id="phone-number" formControlName="phoneNumber">
+
+                <ng-container *ngIf="form.get('phoneNumber')?.touched">
+                    <p class="error" *ngIf="form.get('phoneNumber')?.errors?.['required']">
+                        Field is required!
+                    </p>
+                </ng-container>
+
+                <div class="btns">
+                    <button class="cancle-btn">Cancle</button>
+                    <button class="edit-btn" [disabled]="form.invalid">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

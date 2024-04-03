@@ -1,0 +1,19 @@
+<div class="wrapper">
+    <div class="product-list" *ngFor="let prodcut of productsArr">
+        <div class="product">
+            <div class="left-side">
+                <div *ngIf="!prodcut.imagesUrl">
+                    <img src="../../../assets/noimage.jpg" alt="" />
+                </div>
+                <div *ngIf="prodcut.imagesUrl.length > 0">
+                    <img src="{{ prodcut.imagesUrl[0] }}" alt="" />
+                </div>
+                <h3 [attr.id]="prodcut.id" class="name" (click)="getProductId($event)"
+                    routerLink="/product-list/{{prodcut.id}}">{{ prodcut.productName }}</h3>
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+        </div>
+    </div>
+</div>

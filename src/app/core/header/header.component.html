@@ -1,22 +1,23 @@
 <div class="site-hader">
+  
     <div class="first-header-container">
         <div class="site-title">
-            <p><a routerLink="/home">Flea Market</a></p>
+            <p class="site-name"><a routerLink="/home">Flea Market</a></p>
             <div class="main-nav">
                 <nav>
                     <ul>
                         <li>
-                            <a href="#">About us</a>
+                            <a routerLink="/about-us">About us</a>
                         </li>
                         <li>
-                            <a href="#">How do I sell?</a>
+                            <a routerLink="/sell">How do I sell?</a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </div>
-
+    <div class="error" *ngIf="errorMesage">{{errorMesage}}</div>
     <div class="second-header-container">
         <div *ngIf="!isLoged" class="login-register-nav">
             <nav>
@@ -35,10 +36,13 @@
             <nav>
                 <ul>
                     <li>
-                        <a routerLink="/profile">Krasimir's Profile</a>
+                        <a routerLink="/profile"> Profile</a>
                     </li>
                     <li>
                         <a routerLink="/add-product">Add Product</a>
+                    </li>
+                    <li>
+                        <a routerLink="/my-products">My Products</a>
                     </li>
                     <li>
                         <a href="#">Wish List</a>
